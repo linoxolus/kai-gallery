@@ -1,0 +1,27 @@
+{
+  "name": "kai-gallery",
+  "version": "0.0.1-alpha",
+  "description": "A image and video manager make by Nodejs",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linoxolus/kai-gallery.git"
+  },
+  "keywords": [
+    "image",
+    "gallery",
+    "video",
+    "upload",
+    "download",
+    "collection"
+  ],
+  "author": "linoxolus",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/linoxolus/kai-gallery/issues"
+  },
+  "homepage": "https://github.com/linoxolus/kai-gallery#readme"
+}
