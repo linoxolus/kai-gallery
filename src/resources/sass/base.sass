@@ -1,0 +1,48 @@
+// Node-sass can not import from _var.sass
+
+$nav-height: 50px
+$primary-color1: #2b3035
+$primary-color2: #171a1c
+$primary-color3: #212529
+$text-color: #fff
+
+@mixin flex-center
+    display: flex
+    justify-content: center
+    align-items: center
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: sans-serif
+    color: $text-color
+
+.container
+    background: $primary-color1
+    min-height: 100vh
+    overflow: hidden
+    nav
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        height: $nav-height
+        background: $primary-color2
+        @include flex-center
+        justify-content: space-around
+        padding: 12px
+        gap: 12px
+        .nav-item
+            flex-basis: 100%
+            display: flex
+            align-items: center
+            .nav-link
+                user-select: none
+                cursor: pointer
+                text-decoration: none
+                padding: 6px 12px
+    #content
+        min-height: 100vh
+        margin-top: $nav-height
+        @include flex-center

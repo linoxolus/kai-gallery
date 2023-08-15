@@ -1,0 +1,48 @@
+// Node-sass can not import from _var.sass 
+    
+$nav-height: 50px
+$primary-color1: #2b3035
+$primary-color2: #171a1c
+$primary-color3: #212529
+$text-color: #fff
+
+.container
+    height: 100vh
+
+.upload-container
+    display: flex
+    padding: 48px
+    border-radius: 12px
+    background-color: $primary-color3
+    .upload-item
+        text-align: center
+        vertical-align: middle
+        padding-right: 48px
+        &.list
+            display: flex
+            justify-content: center
+            align-items: center
+            padding-right: 0
+            .upload-files__list
+                padding: 36px 64px
+                .upload-file__item
+                    display: flex
+                    gap: 6px
+                    align-items: center
+                    .upload-file__info
+        .upload-child
+            margin: 24px
+            user-select: none
+            &.upload-icon i
+                font-size: 48px
+
+.btn
+    padding: 12px
+    border-radius: 6px
+    border: 2px solid #ccc
+    user-select: none
+    cursor: pointer
+    &.btn-primary
+        border: none
+        background: #03a9f4
+        color: #fff

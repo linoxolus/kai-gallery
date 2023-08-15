@@ -4,7 +4,9 @@
   "description": "A image and video manager make by Nodejs",
   "main": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "sass": "node-sass --watch src/resources/sass/ -o src/public/css/"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/linoxolus/kai-gallery/issues"
   },
-  "homepage": "https://github.com/linoxolus/kai-gallery#readme"
+  "homepage": "https://github.com/linoxolus/kai-gallery#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "mongoose": "^7.4.3",
+    "node-sass": "^9.0.0"
+  }
 }

@@ -1,0 +1,39 @@
+.container {
+  height: 100vh; }
+
+.upload-container {
+  display: flex;
+  padding: 48px;
+  border-radius: 12px;
+  background-color: #212529; }
+  .upload-container .upload-item {
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 48px; }
+    .upload-container .upload-item.list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 0; }
+      .upload-container .upload-item.list .upload-files__list {
+        padding: 36px 64px; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item {
+          display: flex;
+          gap: 6px;
+          align-items: center; }
+    .upload-container .upload-item .upload-child {
+      margin: 24px;
+      user-select: none; }
+      .upload-container .upload-item .upload-child.upload-icon i {
+        font-size: 48px; }
+
+.btn {
+  padding: 12px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  user-select: none;
+  cursor: pointer; }
+  .btn.btn-primary {
+    border: none;
+    background: #03a9f4;
+    color: #fff; }
