@@ -27,18 +27,26 @@ $icon-size: 50px
         &.upload-form
             padding: 24px
         &.list
-            padding: 24px
+            padding: 0 0 0 24px
             display: flex
             justify-content: center
-            align-items: center
-            gap: 12px
             background: $primary-color4
             border-radius: 12px
+            height: 100%
+            overflow: hidden
             .upload-files__list
+                display: flex
+                gap: 12px
+                flex-direction: column
+                overflow: scroll
                 .upload-file__item
                     display: flex
                     gap: 16px
                     align-items: center
+                    &:first-child
+                        margin-top: 24px
+                    &:last-child
+                        margin-bottom: 24px
                     .upload-file__icon
                         border: 2px solid #fff
                         border-radius: 100%
@@ -68,6 +76,7 @@ $icon-size: 50px
                             font-size: 10px
                             font-weight: 600
                     .upload-file__status
+                        margin-right: 24px
                         i
                             font-size: 24px
         .upload-child
