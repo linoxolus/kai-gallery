@@ -4,32 +4,72 @@ $nav-height: 50px
 $primary-color1: #2b3035
 $primary-color2: #171a1c
 $primary-color3: #212529
+$primary-color4: #3e4246
 $text-color: #fff
+
+$icon-size: 50px
 
 .container
     height: 100vh
 
 .upload-container
     display: flex
-    padding: 48px
+    padding: 24px
+    height: 60vh
+    align-items: center
     border-radius: 12px
     background-color: $primary-color3
+    margin: 36px
     .upload-item
         text-align: center
         vertical-align: middle
         padding-right: 48px
+        &.upload-form
+            padding: 24px
         &.list
+            padding: 24px
             display: flex
             justify-content: center
             align-items: center
-            padding-right: 0
+            gap: 12px
+            background: $primary-color4
+            border-radius: 12px
             .upload-files__list
-                padding: 36px 64px
                 .upload-file__item
                     display: flex
-                    gap: 6px
+                    gap: 16px
                     align-items: center
+                    .upload-file__icon
+                        border: 2px solid #fff
+                        border-radius: 100%
+                        height: $icon-size
+                        width: $icon-size
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        text-transform: uppercase
+                        overflow: hidden
+                        text-overflow: ellipsis
+                        .upload-file__type
+                            padding: 5px
+                            overflow: hidden
+                            text-overflow: ellipsis
                     .upload-file__info
+                        display: flex
+                        flex-direction: column
+                        justify-content: space-evenly
+                        align-items: flex-start
+                        padding-right: 64px 
+                        height: $icon-size
+                        .upload-file__name
+                            font-size: 20px
+                            margin-top: -2px
+                        .upload-file__progress
+                            font-size: 10px
+                            font-weight: 600
+                    .upload-file__status
+                        i
+                            font-size: 24px
         .upload-child
             margin: 24px
             user-select: none
