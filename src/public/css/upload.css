@@ -20,7 +20,7 @@
     .upload-container .upload-item.upload-form {
       padding: 24px; }
     .upload-container .upload-item.list {
-      padding: 0 0 0 24px;
+      padding: 0;
       display: flex;
       justify-content: center;
       background: #3e4246;
@@ -51,7 +51,8 @@
             text-transform: uppercase;
             overflow: hidden;
             text-overflow: ellipsis;
-            user-select: none; }
+            user-select: none;
+            margin-left: 24px; }
             .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__icon .upload-file__type {
               font-size: 12px;
               padding: 5px;
@@ -81,6 +82,8 @@
       user-select: none; }
       .upload-container .upload-item .upload-child.upload-icon i {
         font-size: 48px; }
+    .upload-container .upload-item #filesData {
+      display: none; }
 
 .btn {
   padding: 12px;
@@ -93,7 +96,7 @@
     background: #03a9f4;
     color: #fff; }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 840px) {
   .upload-container {
     flex-direction: column;
     height: fit-content; }
