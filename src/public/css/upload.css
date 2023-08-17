@@ -75,7 +75,8 @@
                 overflow: hidden;
                 max-width: 200px;
                 font-size: 18px;
-                margin-top: -2px; }
+                margin-top: -1px;
+                white-space: nowrap; }
               .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__content .upload-file__info .upload-file__progress {
                 font-size: 10px;
                 font-weight: 600; }
@@ -111,5 +112,7 @@
   .upload-container {
     flex-direction: column;
     height: fit-content; }
-    .upload-container .upload-files__list {
-      max-height: 256px; } }
+    .upload-container .upload-item.list {
+      margin-top: 12px; }
+      .upload-container .upload-item.list .upload-files__list {
+        max-height: 256px; } }

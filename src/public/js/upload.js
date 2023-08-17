@@ -1,6 +1,10 @@
 var filesInput = document.querySelector('#filesData');
 var filesList = document.querySelector('.upload-files__list');
 var data = new FormData();
+var progressUpload;
+
+// Current Index File Upload
+var currentIndex = 0;
 
 function appendData() {
     for (var i = 0; i < filesInput.files.length; i++) {
@@ -9,25 +13,30 @@ function appendData() {
     }
 }
 
-function uploadFiles() {
-    appendData();
-    fetch('/store', {
-        method: 'POST',
-        body: data,
-        headers: {
-            // "Content -Type": "multipart/form-data",
-        },
-    })
-        .then((res) => res.json())
-        .catch(() => console.log('Bug!!'));
-}
+const req = new XMLHttpRequest();
+
+req.open('POST', '/store')
+req.upload.addEventListener('progress', (e) => {
+  progressUpload = [e.loaded, e.total];
+})
+
+req.addEventListener('load', () => {
+  
+})
 
 function getListItem(file) {
+    fileNameSplit = file.name.split('.');
+
     filesList.innerHTML += `
     <li class='upload-file__item'>
     <div class='upload-file__icon'>
         <div class='upload-file__type'>
-        ${file.type.split('/')[1].length <= 3 ? file.type.split('/')[1] : "<h2>?</h2>"}
+        ${
+            fileNameSplit[fileNameSplit.length - 1].length <= 3 &&
+            fileNameSplit[fileNameSplit.length - 1].length !== 0
+                ? fileNameSplit[fileNameSplit.length - 1]
+                : '<h2>?</h2>'
+        }
         </div>
     </div>
     <div class='upload-file__content'>
@@ -49,7 +58,9 @@ function getListItem(file) {
 }
 
 function filesListLoad(e) {
-    uploadFiles();
+    // uploadFiles();
+    appendData();
+    req.send(data);
 }
 
 filesInput.onchange = filesListLoad;

@@ -14,7 +14,6 @@ class adminController {
         res.status(201).json({
             message: "success"
         })
-        console.log(req.body);
     }
 }
 

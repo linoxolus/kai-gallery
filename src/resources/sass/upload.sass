@@ -87,7 +87,8 @@ $icon-size: 45px
                                 overflow: hidden
                                 max-width: 200px                            
                                 font-size: 18px
-                                margin-top: -2px
+                                margin-top: -1px
+                                white-space: nowrap
                             .upload-file__progress
                                 font-size: 10px
                                 font-weight: 600
@@ -123,5 +124,7 @@ $icon-size: 45px
     .upload-container
         flex-direction: column
         height: fit-content
-        .upload-files__list
-            max-height: 256px   
+        .upload-item.list
+            margin-top: 12px;
+            .upload-files__list
+                max-height: 256px   
