@@ -24,25 +24,27 @@ function uploadFiles() {
 
 function getListItem(file) {
     filesList.innerHTML += `
-    <li class="upload-file__item">
-                <div class="upload-file__icon">
-                    <div class="upload-file__type">
-                        ${file.type.split('/')[1].length <= 3 ? file.type.split('/')[1] : "<h2>?</h2>"}
-                    </div>
-                </div>
-                <div class="upload-file__info">
-                    <div class="upload-file__name">
-                        ${file.name}
-                    </div>
-                    <div class="upload-file__progress">
-                        1.46mb/2.34mb
-                    </div>
-                </div>
-                <div class="upload-file__status">
-                    <i class="fa-regular fa-circle-xmark"></i>
-                    <!-- <i class="fa-solid fa-check check"></i> -->
-                </div>
-            </li>
+    <li class='upload-file__item'>
+    <div class='upload-file__icon'>
+        <div class='upload-file__type'>
+        ${file.type.split('/')[1].length <= 3 ? file.type.split('/')[1] : "<h2>?</h2>"}
+        </div>
+    </div>
+    <div class='upload-file__content'>
+        <div class='upload-file__info'>
+            <div class='upload-file__name'>
+                ${file.name}
+            </div>
+            <div class='upload-file__progress'>
+                1.46mb/2.34mb
+            </div>
+        </div>
+        <div class='upload-file__status'>
+            <i class='fa-regular fa-circle-xmark'></i>
+            <!-- <i class="fa-solid fa-check check"></i> -->
+        </div>
+    </div>
+</li>
     `;
 }
 
