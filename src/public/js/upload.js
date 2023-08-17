@@ -1,30 +1,31 @@
 var filesInput = document.querySelector('#filesData');
 var filesList = document.querySelector('.upload-files__list');
-var data = new FormData();
-var progressUpload;
-
-// Current Index File Upload
+var datas = [];
+var progressUploads = [];
 var currentIndex = 0;
+var isInited = false;
 
-function appendData() {
-    for (var i = 0; i < filesInput.files.length; i++) {
-        data.append('files', filesInput.files[i]);
-        getListItem(filesInput.files[i]);
+function formatBytes(bytes) {
+    const sizes = ['b', 'kb', 'mb', 'gb'];
+    let sizesIndex = 0;
+
+    for (; bytes >= 1024 && sizesIndex < sizes.length - 1; sizesIndex++) {
+        bytes /= 1024;
+    }
+
+    return `${bytes.toFixed(2)}${sizes[sizesIndex]}`;
+}
+
+function getUploadProcess(index) {
+    if (isInited) {
+        const { uploadingBytes, uploadTotalBytes } = progressUploads[index];
+        return `${formatBytes(uploadingBytes)}/${formatBytes(
+            uploadTotalBytes
+        )}`;
     }
 }
 
-const req = new XMLHttpRequest();
-
-req.open('POST', '/store')
-req.upload.addEventListener('progress', (e) => {
-  progressUpload = [e.loaded, e.total];
-})
-
-req.addEventListener('load', () => {
-  
-})
-
-function getListItem(file) {
+function addListItem(file) {
     fileNameSplit = file.name.split('.');
 
     filesList.innerHTML += `
@@ -44,8 +45,8 @@ function getListItem(file) {
             <div class='upload-file__name'>
                 ${file.name}
             </div>
-            <div class='upload-file__progress'>
-                1.46mb/2.34mb
+            <div class='upload-file__progress' data-id="${currentIndex}">
+                ${getUploadProcess(progressUploads.length - 1)}
             </div>
         </div>
         <div class='upload-file__status'>
@@ -57,10 +58,66 @@ function getListItem(file) {
     `;
 }
 
+// Update upload progess
+function updateUploadProgress() {
+    // var currentProgress;
+
+    // for (var i = 0; i < progressUploads.length; i++) {
+    //   var uploadProgressElement = document.querySelectorAll(
+    //       '.upload-file__progress'
+    //   );
+    //   currentProgress = progressUploads.find(
+    //         (progressUpload) => progressUpload.id == i
+    //     );
+    //     if (currentProgress ) {
+    //         uploadProgressElement[i].textContent = getUploadProcess(i);
+    //     } else {
+    //         uploadProgressElement[i].textContent = `code not run`;
+    //     }
+    // }
+
+    for (const progress of progressUploads) {
+        const uploadProgressElement = document.querySelector(
+            `.upload-file__progress[data-id="${progress.id}"]`
+        );
+
+        if (uploadProgressElement) {
+            uploadProgressElement.textContent = getUploadProcess(progress.id);
+        }
+    }
+}
+
 function filesListLoad(e) {
-    // uploadFiles();
-    appendData();
-    req.send(data);
+    for (var i = 0; i < filesInput.files.length; i++) {
+        const req = new XMLHttpRequest();
+        req.open('POST', '/store');
+        datas.push({
+            id: i,
+            data: new FormData(),
+        });
+        datas[i].data.append('files', filesInput.files[i]);
+        addListItem(filesInput.files[i]);
+        req.addEventListener('load', () => {});
+        req.upload.addEventListener('progress', (e) => {
+            const uploadingBytes = e.loaded;
+            const uploadTotalBytes = e.total;
+
+            progressUploads.push({
+                id: currentIndex,
+                uploadingBytes,
+                uploadTotalBytes,
+            });
+            currentIndex++;
+            e.loaded = 0;
+            e.total = 0;
+        });
+        req.send(datas[i].data);
+    }
+    isInited = true;
 }
 
 filesInput.onchange = filesListLoad;
+
+setInterval(() => {
+    updateUploadProgress();
+}, 100);
