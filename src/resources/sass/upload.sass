@@ -77,7 +77,11 @@ $icon-size: 45px
                         align-items: flex-start
                         padding-right: 64px
                         height: $icon-size
+                        max-width: 200px
                         .upload-file__name
+                            text-overflow: ellipsis
+                            overflow: hidden
+                            max-width: 200px                            
                             font-size: 18px
                             margin-top: -2px
                         .upload-file__progress

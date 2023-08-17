@@ -64,8 +64,12 @@
             justify-content: space-evenly;
             align-items: flex-start;
             padding-right: 64px;
-            height: 45px; }
+            height: 45px;
+            max-width: 200px; }
             .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__info .upload-file__name {
+              text-overflow: ellipsis;
+              overflow: hidden;
+              max-width: 200px;
               font-size: 18px;
               margin-top: -2px; }
             .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__info .upload-file__progress {
