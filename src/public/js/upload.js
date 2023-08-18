@@ -102,11 +102,11 @@ function filesListLoad(e) {
             const uploadingBytes = e.loaded;
             const uploadTotalBytes = e.total;
 
-            progressUploads.push({
+            progressUploads[currentIndex] = {
                 id: currentIndex,
                 uploadingBytes,
                 uploadTotalBytes,
-            });
+            };
             currentIndex++;
             e.loaded = 0;
             e.total = 0;
