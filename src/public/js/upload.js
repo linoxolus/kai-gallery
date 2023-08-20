@@ -78,10 +78,33 @@ function updateUploadProgress() {
         i++;
     }
 }
+var req = new XMLHttpRequest();
+req.addEventListener('load', () => {});
+req.upload.addEventListener('progress', (e) => {
+    const uploadingBytes = e.loaded;
+    const uploadTotalBytes = e.total;
+
+    if (!progressUploads[currentIndex]) {
+        progressUploads[currentIndex] = [];
+    }
+    progressUploads[currentIndex][currentUploadingIndex] = {
+        id: currentUploadingIndex,
+        uploadingBytes,
+        uploadTotalBytes,
+    };
+    currentUploadingIndex++;
+    updateUploadProgress();
+});
+
+req.upload.addEventListener('load', (e) => {
+    updateUploadProgress();
+    console.log('Upload Successly');
+    currentIndex++;
+    currentUploadingIndex = 0;
+});
 
 function filesListLoad(e) {
     for (var i = 0; i < filesInput.files.length; i++) {
-        const req = new XMLHttpRequest();
         req.open('POST', '/store');
         datas.push({
             id: i,
@@ -89,33 +112,9 @@ function filesListLoad(e) {
         });
         datas[i].data.append('files', filesInput.files[i]);
         addListItem(filesInput.files[i]);
-        req.addEventListener('load', () => {});
-        req.upload.addEventListener('progress', (e) => {
-            const uploadingBytes = e.loaded;
-            const uploadTotalBytes = e.total;
-
-            if (!progressUploads[currentIndex]) {
-                progressUploads[currentIndex] = [];
-            }
-            progressUploads[currentIndex][currentUploadingIndex] = {
-                id: currentUploadingIndex,
-                uploadingBytes,
-                uploadTotalBytes,
-            };
-            currentUploadingIndex++;
-
-            if (uploadingBytes === uploadTotalBytes) {
-                currentIndex++;
-                currentUploadingIndex = 0;
-            }
-        });
         req.send(datas[i].data);
     }
     isInited = true;
 }
 
 filesInput.onchange = filesListLoad;
-
-setInterval(() => {
-    updateUploadProgress();
-}, 100);
