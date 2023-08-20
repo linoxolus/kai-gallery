@@ -96,7 +96,7 @@ req.upload.addEventListener('load', (e) => {
 });
 
 function uploadFile(index) {
-    if (index >= filesInput.files.length) {
+    if (index >= filesInput.files.length + progressUploads.length) {
         return;
     }
 
@@ -118,7 +118,6 @@ function uploadFile(index) {
 }
 
 function filesListLoad(e) {
-    currentIndex = 0;
     uploadFile(currentIndex);
 }
 
