@@ -3,7 +3,6 @@ var filesList = document.querySelector('.upload-files__list');
 var datas = [];
 var progressUploads = [];
 var currentIndex = 0;
-var isInited = false;
 var totalAllBytes = 0;
 
 function formatBytes(bytes) {
@@ -18,17 +17,12 @@ function formatBytes(bytes) {
 }
 
 function getUploadProcess(currentIndex) {
-    if (isInited) {
-        const { uploadingBytes, uploadTotalBytes } =
-            progressUploads[currentIndex];
-        return `${formatBytes(uploadingBytes)}/${formatBytes(
-            uploadTotalBytes
-        )}`;
-    }
+    const { uploadingBytes, uploadTotalBytes } = progressUploads[currentIndex];
+    return `${formatBytes(uploadingBytes)}/${formatBytes(uploadTotalBytes)}`;
 }
 
 function addListItem(file) {
-    fileNameSplit = file.name.split('.');
+    let fileNameSplit = file.name.split('.');
 
     filesList.innerHTML += `
     <li class='upload-file__item'>
@@ -69,9 +63,7 @@ function updateUploadProgress() {
         );
 
         if (uploadProgressElement) {
-            uploadProgressElement.textContent = getUploadProcess(
-                i
-            );
+            uploadProgressElement.textContent = getUploadProcess(i);
         }
         i++;
     }
@@ -97,22 +89,20 @@ req.upload.addEventListener('load', (e) => {
     updateUploadProgress();
     console.log('Upload Successly');
     currentIndex++;
+    // datas = [];
 });
 
 function filesListLoad(e) {
     for (var i = 0; i < filesInput.files.length; i++) {
         req.open('POST', '/store');
-        datas.push({
+        datas[i] = {
             id: i,
             data: new FormData(),
-        });
+        };
         datas[i].data.append('files', filesInput.files[i]);
-        // Bug
         addListItem(filesInput.files[i]);
-        //
         req.send(datas[i].data);
     }
-    isInited = true;
 }
 
 filesInput.onchange = filesListLoad;
