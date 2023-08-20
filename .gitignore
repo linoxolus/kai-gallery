@@ -1,3 +1,6 @@
+# uploads datas
+src/public/uploads
+
 # Logs
 logs
 *.log

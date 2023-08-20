@@ -2,7 +2,6 @@ var filesInput = document.querySelector('#filesData');
 var filesList = document.querySelector('.upload-files__list');
 var datas = [];
 var progressUploads = [];
-var currentUploadingIndex = 0;
 var currentIndex = 0;
 var isInited = false;
 var totalAllBytes = 0;
@@ -18,10 +17,10 @@ function formatBytes(bytes) {
     return `${bytes.toFixed(2)}${sizes[sizesIndex]}`;
 }
 
-function getUploadProcess(currentIndex, index) {
+function getUploadProcess(currentIndex) {
     if (isInited) {
         const { uploadingBytes, uploadTotalBytes } =
-            progressUploads[currentIndex][index];
+            progressUploads[currentIndex];
         return `${formatBytes(uploadingBytes)}/${formatBytes(
             uploadTotalBytes
         )}`;
@@ -49,7 +48,7 @@ function addListItem(file) {
                 ${file.name}
             </div>
             <div class='upload-file__progress' data-id="${currentIndex}">
-                ${getUploadProcess(currentIndex, progressUploads.length - 1)}
+                ${getUploadProcess(currentIndex)}
             </div>
         </div>
         <div class='upload-file__status'>
@@ -64,15 +63,14 @@ function addListItem(file) {
 // Update upload progess
 function updateUploadProgress() {
     var i = 0;
-    for (const progresses of progressUploads) {
+    for (const progress of progressUploads) {
         var uploadProgressElement = document.querySelector(
-            `.upload-file__progress[data-id="${progresses[0].id}"]`
+            `.upload-file__progress[data-id="${progress.id}"]`
         );
 
         if (uploadProgressElement) {
             uploadProgressElement.textContent = getUploadProcess(
-                i,
-                progresses.length - 1
+                i
             );
         }
         i++;
@@ -87,12 +85,11 @@ req.upload.addEventListener('progress', (e) => {
     if (!progressUploads[currentIndex]) {
         progressUploads[currentIndex] = [];
     }
-    progressUploads[currentIndex][currentUploadingIndex] = {
-        id: currentUploadingIndex,
+    progressUploads[currentIndex] = {
+        id: currentIndex,
         uploadingBytes,
         uploadTotalBytes,
     };
-    currentUploadingIndex++;
     updateUploadProgress();
 });
 
@@ -100,7 +97,6 @@ req.upload.addEventListener('load', (e) => {
     updateUploadProgress();
     console.log('Upload Successly');
     currentIndex++;
-    currentUploadingIndex = 0;
 });
 
 function filesListLoad(e) {
@@ -111,7 +107,9 @@ function filesListLoad(e) {
             data: new FormData(),
         });
         datas[i].data.append('files', filesInput.files[i]);
+        // Bug
         addListItem(filesInput.files[i]);
+        //
         req.send(datas[i].data);
     }
     isInited = true;
