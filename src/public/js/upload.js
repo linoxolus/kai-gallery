@@ -70,6 +70,7 @@ function updateUploadProgress() {
         }
         i++;
     }
+
 }
 var req = new XMLHttpRequest();
 req.addEventListener('load', () => {});
@@ -91,23 +92,34 @@ req.upload.addEventListener('progress', (e) => {
 req.upload.addEventListener('load', (e) => {
     updateUploadProgress();
     console.log('Upload Successly');
-    currentIndex++;
-    // datas = [];
     isInited = false;
 });
 
-function filesListLoad(e) {
-    for (var i = 0; i < filesInput.files.length; i++) {
-        req.open('POST', '/store');
-        datas[i] = {
-            id: i,
-            data: new FormData(),
-        };
-        datas[i].data.append('files', filesInput.files[i]);
-        addListItem(filesInput.files[i]);
-        req.send(datas[i].data);
+function uploadFile(index) {
+    if (index >= filesInput.files.length) {
+        return;
     }
+
+    req.open('POST', '/store');
+    req.onload = function () {
+        currentIndex++;
+        uploadFile(currentIndex);
+    };
+
+    datas[index] = {
+        id: index,
+        data: new FormData(),
+    };
+    datas[index].data.append('files', filesInput.files[index]);
+    addListItem(filesInput.files[index]);
+    req.send(datas[index].data);
+    updateUploadProgress();
     isInited = true;
+}
+
+function filesListLoad(e) {
+    currentIndex = 0;
+    uploadFile(currentIndex);
 }
 
 filesInput.onchange = filesListLoad;
