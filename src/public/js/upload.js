@@ -65,19 +65,15 @@ function addListItem(file) {
 function updateUploadProgress() {
     var i = 0;
     for (const progresses of progressUploads) {
-        for (const progress of progresses) {
-            var uploadProgressElement = document.querySelector(
-                `.upload-file__progress[data-id="${progress.id}"]`
-            );
+        var uploadProgressElement = document.querySelector(
+            `.upload-file__progress[data-id="${progresses[0].id}"]`
+        );
 
-            if (uploadProgressElement) {
-                for (var j = 0; j < progresses.length; j++) {
-                    uploadProgressElement.textContent = getUploadProcess(
-                        i,
-                        j
-                    );
-                }
-            }
+        if (uploadProgressElement) {
+            uploadProgressElement.textContent = getUploadProcess(
+                i,
+                progresses.length - 1
+            );
         }
         i++;
     }
