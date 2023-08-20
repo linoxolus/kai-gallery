@@ -3,6 +3,7 @@ var filesList = document.querySelector('.upload-files__list');
 var datas = [];
 var progressUploads = [];
 var currentIndex = 0;
+var isInited = false;
 var totalAllBytes = 0;
 
 function formatBytes(bytes) {
@@ -17,8 +18,10 @@ function formatBytes(bytes) {
 }
 
 function getUploadProcess(currentIndex) {
-    const { uploadingBytes, uploadTotalBytes } = progressUploads[currentIndex];
-    return `${formatBytes(uploadingBytes)}/${formatBytes(uploadTotalBytes)}`;
+    if (isInited) {
+        const { uploadingBytes, uploadTotalBytes } = progressUploads[currentIndex];
+        return `${formatBytes(uploadingBytes)}/${formatBytes(uploadTotalBytes)}`;
+    }
 }
 
 function addListItem(file) {
@@ -90,6 +93,7 @@ req.upload.addEventListener('load', (e) => {
     console.log('Upload Successly');
     currentIndex++;
     // datas = [];
+    isInited = false;
 });
 
 function filesListLoad(e) {
@@ -103,6 +107,7 @@ function filesListLoad(e) {
         addListItem(filesInput.files[i]);
         req.send(datas[i].data);
     }
+    isInited = true;
 }
 
 filesInput.onchange = filesListLoad;
