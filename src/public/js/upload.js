@@ -19,8 +19,11 @@ function formatBytes(bytes) {
 
 function getUploadProcess(currentIndex) {
     if (isInited) {
-        const { uploadingBytes, uploadTotalBytes } = progressUploads[currentIndex];
-        return `${formatBytes(uploadingBytes)}/${formatBytes(uploadTotalBytes)}`;
+        const { uploadingBytes, uploadTotalBytes } =
+            progressUploads[currentIndex];
+        return `${formatBytes(uploadingBytes)}/${formatBytes(
+            uploadTotalBytes
+        )}`;
     }
 }
 
@@ -70,22 +73,19 @@ function updateUploadProgress() {
         }
         i++;
     }
-
 }
 var req = new XMLHttpRequest();
 req.addEventListener('load', () => {});
 req.upload.addEventListener('progress', (e) => {
     const uploadingBytes = e.loaded;
     const uploadTotalBytes = e.total;
-
-    if (!progressUploads[currentIndex]) {
-        progressUploads[currentIndex] = [];
-    }
+    
     progressUploads[currentIndex] = {
         id: currentIndex,
         uploadingBytes,
         uploadTotalBytes,
     };
+    
     updateUploadProgress();
 });
 
@@ -96,7 +96,7 @@ req.upload.addEventListener('load', (e) => {
 });
 
 function uploadFile(index) {
-    if (index >= filesInput.files.length + progressUploads.length) {
+    if (index >= filesInput.files.length) {
         return;
     }
 
@@ -106,11 +106,14 @@ function uploadFile(index) {
         uploadFile(currentIndex);
     };
 
-    datas[index] = {
-        id: index,
-        data: new FormData(),
-    };
-    datas[index].data.append('files', filesInput.files[index]);
+    if (!datas[index]) {
+        datas[index] = {
+            id: index,
+            data: new FormData(),
+        };
+        datas[index].data.append('files', filesInput.files[index]);
+    }
+
     addListItem(filesInput.files[index]);
     req.send(datas[index].data);
     updateUploadProgress();
