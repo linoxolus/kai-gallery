@@ -1,12 +1,11 @@
 // Node-sass can not import from _var.sass 
-
 $nav-height: 50px
 $primary-color1: #2b3035
 $primary-color2: #171a1c
 $primary-color3: #212529
 $primary-color4: #3e4246
 $text-color: #fff
-$success-color: #3cb371
+$success-color: #4AA96C
 
 $icon-size: 45px
 
@@ -44,6 +43,7 @@ $icon-size: 45px
                 gap: 12px
                 flex-direction: column-reverse
                 overflow: scroll
+                justify-content: flex-end
                 .upload-file__item
                     display: flex
                     gap: 16px
@@ -68,6 +68,7 @@ $icon-size: 45px
                         .upload-file__type
                             font-size: 12px
                             padding: 5px
+                            font-weight: 600
                             overflow: hidden
                             text-overflow: ellipsis
                     .upload-file__content
@@ -85,7 +86,7 @@ $icon-size: 45px
                             .upload-file__name
                                 text-overflow: ellipsis
                                 overflow: hidden
-                                max-width: 200px                            
+                                max-width: 200px
                                 font-size: 18px
                                 margin-top: -1px
                                 white-space: nowrap
@@ -101,6 +102,28 @@ $icon-size: 45px
                                 font-size: 24px
                                 &.check
                                     color: $success-color
+                                    display: none
+
+                .upload-file__item.uploading
+                    .upload-file__content
+                        .upload-file__status
+                            i.check
+                                display: none
+
+                .upload-file__item.uploaded
+                    .upload-file__icon
+                        border: 2px solid $success-color
+                        // background: $success-color
+                        .upload-file__type
+                            color: $success-color
+                            h2
+                                color: $success-color
+                    .upload-file__content
+                        .upload-file__status
+                            i.check
+                                display: block
+                            i.close
+                                display: none
         .upload-child
             margin: 24px
             user-select: none
@@ -125,6 +148,6 @@ $icon-size: 45px
         flex-direction: column
         height: fit-content
         .upload-item.list
-            margin-top: 12px;
+            margin-top: 12px
             .upload-files__list
-                max-height: 256px   
+                max-height: 256px

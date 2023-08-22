@@ -34,7 +34,7 @@ function addListItem(file) {
     let fileNameSplit = file.name.split('.');
 
     filesList.innerHTML += `
-    <li class='upload-file__item'>
+    <li class='upload-file__item uploading'>
     <div class='upload-file__icon'>
         <div class='upload-file__type'>
         ${
@@ -55,8 +55,8 @@ function addListItem(file) {
             </div>
         </div>
         <div class='upload-file__status'>
-            <i class='fa-regular fa-circle-xmark'></i>
-            <!-- <i class="fa-solid fa-check check"></i> -->
+            <i class='fa-regular fa-circle-xmark close'></i>
+            <i class="fa-solid fa-check check"></i>
         </div>
     </div>
 </li>
@@ -66,15 +66,25 @@ function addListItem(file) {
 // Update upload progess
 function updateUploadProgress() {
     var i = 0;
+
     for (const progress of progressUploads) {
+        const { uploadingBytes, uploadTotalBytes } = progressUploads[i];
         var uploadProgressElement = document.querySelector(
             `.upload-file__progress[data-id="${progress.id}"]`
         );
+
+        var uploadElement =
+            uploadProgressElement.parentElement.parentElement.parentElement;
 
         if (uploadProgressElement) {
             uploadProgressElement.textContent = getUploadProcess(i);
         }
         i++;
+
+        if (uploadingBytes === uploadTotalBytes) {
+            uploadElement.classList.remove('uploading');
+            uploadElement.classList.add('uploaded');
+        }
     }
 }
 var req = new XMLHttpRequest();
@@ -99,7 +109,7 @@ req.upload.addEventListener('load', (e) => {
 });
 
 function uploadFile(index) {
-    if (index >= (filesInputFilesTemp.length)) {
+    if (index >= filesInputFilesTemp.length) {
         return;
     }
 

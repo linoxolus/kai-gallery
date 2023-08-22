@@ -31,7 +31,8 @@
         display: flex;
         gap: 12px;
         flex-direction: column-reverse;
-        overflow: scroll; }
+        overflow: scroll;
+        justify-content: flex-end; }
         .upload-container .upload-item.list .upload-files__list .upload-file__item {
           display: flex;
           gap: 16px;
@@ -56,6 +57,7 @@
             .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__icon .upload-file__type {
               font-size: 12px;
               padding: 5px;
+              font-weight: 600;
               overflow: hidden;
               text-overflow: ellipsis; }
           .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__content {
@@ -88,7 +90,20 @@
               .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__content .upload-file__status i {
                 font-size: 24px; }
                 .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__content .upload-file__status i.check {
-                  color: #3cb371; }
+                  color: #4AA96C;
+                  display: none; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item.uploading .upload-file__content .upload-file__status i.check {
+          display: none; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item.uploaded .upload-file__icon {
+          border: 2px solid #4AA96C; }
+          .upload-container .upload-item.list .upload-files__list .upload-file__item.uploaded .upload-file__icon .upload-file__type {
+            color: #4AA96C; }
+            .upload-container .upload-item.list .upload-files__list .upload-file__item.uploaded .upload-file__icon .upload-file__type h2 {
+              color: #4AA96C; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item.uploaded .upload-file__content .upload-file__status i.check {
+          display: block; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item.uploaded .upload-file__content .upload-file__status i.close {
+          display: none; }
     .upload-container .upload-item .upload-child {
       margin: 24px;
       user-select: none; }
