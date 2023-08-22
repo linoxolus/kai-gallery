@@ -10,7 +10,8 @@ class adminController {
     }
 
     // [POST] /store
-    store(req, res, next) {
+    async store(req, res, next) {
+        console.log(req.files);
         res.status(201).json({
             message: "success"
         })
