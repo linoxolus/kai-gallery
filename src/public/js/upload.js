@@ -91,7 +91,7 @@ req.upload.addEventListener('progress', (e) => {
 
 req.upload.addEventListener('load', (e) => {
     updateUploadProgress();
-    console.log('Upload Successly');
+    console.log('Upload Successly'); 
     isInited = false;
 });
 
