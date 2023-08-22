@@ -6,6 +6,7 @@ $primary-color3: #212529
 $primary-color4: #3e4246
 $text-color: #fff
 $success-color: #4AA96C
+$max-width: calc(100vw - 32px)
 
 $icon-size: 45px
 
@@ -24,10 +25,12 @@ $icon-size: 45px
     background-color: $primary-color3
     margin: 36px
     margin-top: 0
+    max-width: $max-width
     .upload-item
         text-align: center
         vertical-align: middle
         padding-right: 48px
+        max-width: $max-width
         &.upload-form
             padding: 24px
         &.list
@@ -38,6 +41,7 @@ $icon-size: 45px
             border-radius: 12px
             height: 100%
             overflow: hidden
+            max-width: $max-width
             .upload-files__list
                 display: flex
                 gap: 12px
@@ -159,6 +163,10 @@ $icon-size: 45px
             margin-top: 12px
             .upload-files__list
                 max-height: 256px
+                .upload-file__info
+                    padding-right: 0 !important
+                    .upload-file__name
+                        max-width: 120px !important
 
 @keyframes loading
     0%

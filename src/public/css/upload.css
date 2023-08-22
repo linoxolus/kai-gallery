@@ -12,11 +12,13 @@
   border-radius: 12px;
   background-color: #212529;
   margin: 36px;
-  margin-top: 0; }
+  margin-top: 0;
+  max-width: calc(100vw - 32px); }
   .upload-container .upload-item {
     text-align: center;
     vertical-align: middle;
-    padding-right: 48px; }
+    padding-right: 48px;
+    max-width: calc(100vw - 32px); }
     .upload-container .upload-item.upload-form {
       padding: 24px; }
     .upload-container .upload-item.list {
@@ -26,7 +28,8 @@
       background: #3e4246;
       border-radius: 12px;
       height: 100%;
-      overflow: hidden; }
+      overflow: hidden;
+      max-width: calc(100vw - 32px); }
       .upload-container .upload-item.list .upload-files__list {
         display: flex;
         gap: 12px;
@@ -136,7 +139,11 @@
     .upload-container .upload-item.list {
       margin-top: 12px; }
       .upload-container .upload-item.list .upload-files__list {
-        max-height: 256px; } }
+        max-height: 256px; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__info {
+          padding-right: 0 !important; }
+          .upload-container .upload-item.list .upload-files__list .upload-file__info .upload-file__name {
+            max-width: 120px !important; } }
 
 @keyframes loading {
   0% {
