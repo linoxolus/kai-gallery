@@ -103,6 +103,11 @@ $icon-size: 45px
                                 &.check
                                     color: $success-color
                                     display: none
+                                &.close
+                                    display: none
+                            .loading
+                                svg
+                                    animation: loading 1s infinite linear
 
                 .upload-file__item.uploading
                     .upload-file__content
@@ -124,6 +129,9 @@ $icon-size: 45px
                                 display: block
                             i.close
                                 display: none
+                        .loading
+                            display: none
+                            
         .upload-child
             margin: 24px
             user-select: none
@@ -151,3 +159,9 @@ $icon-size: 45px
             margin-top: 12px
             .upload-files__list
                 max-height: 256px
+
+@keyframes loading
+    0%
+        transform: rotate(0);
+    100%
+        transform: rotate(360deg);

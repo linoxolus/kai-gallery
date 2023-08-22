@@ -55,6 +55,26 @@ function addListItem(file) {
             </div>
         </div>
         <div class='upload-file__status'>
+            <div class='loading'>
+                <svg
+                    width='25'
+                    height='25'
+                    viewBox='0 0 160 160'
+                    style='transform: rotate(-90deg)'
+                >
+                    <circle
+                        r='70'
+                        cx='80'
+                        cy='80'
+                        fill='transparent'
+                        stroke='#fff'
+                        stroke-linecap='round'
+                        stroke-width='12px'
+                        stroke-dasharray='439.6px'
+                        stroke-dashoffset='109.9px'
+                    ></circle>
+                </svg>
+            </div>
             <i class='fa-regular fa-circle-xmark close'></i>
             <i class="fa-solid fa-check check"></i>
         </div>
