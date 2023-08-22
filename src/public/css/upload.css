@@ -30,16 +30,16 @@
       .upload-container .upload-item.list .upload-files__list {
         display: flex;
         gap: 12px;
-        flex-direction: column;
+        flex-direction: column-reverse;
         overflow: scroll; }
         .upload-container .upload-item.list .upload-files__list .upload-file__item {
           display: flex;
           gap: 16px;
           align-items: center; }
           .upload-container .upload-item.list .upload-files__list .upload-file__item:first-child {
-            margin-top: 24px; }
-          .upload-container .upload-item.list .upload-files__list .upload-file__item:last-child {
             margin-bottom: 24px; }
+          .upload-container .upload-item.list .upload-files__list .upload-file__item:last-child {
+            margin-top: 24px; }
           .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__icon {
             border: 2px solid #fff;
             border-radius: 100%;
