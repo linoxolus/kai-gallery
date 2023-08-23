@@ -10,9 +10,6 @@ $max-width: calc(100vw - 32px)
 
 $icon-size: 45px
 
-*
-    transition: 2s
-
 .container
     height: 100vh
 
@@ -29,7 +26,6 @@ $icon-size: 45px
     .upload-item
         text-align: center
         vertical-align: middle
-        padding-right: 48px
         max-width: $max-width
         &.upload-form
             padding: 24px
@@ -45,17 +41,16 @@ $icon-size: 45px
             .upload-files__list
                 display: flex
                 gap: 12px
-                flex-direction: column-reverse
+                flex-direction: column
                 overflow: scroll
-                justify-content: flex-end
                 .upload-file__item
                     display: flex
                     gap: 16px
                     align-items: center
                     &:first-child
-                        margin-bottom: 24px
-                    &:last-child
                         margin-top: 24px
+                    &:last-child
+                        margin-bottom: 24px
                     .upload-file__icon
                         border: 2px solid #fff
                         border-radius: 100%
@@ -84,7 +79,7 @@ $icon-size: 45px
                             flex-direction: column
                             justify-content: space-evenly
                             align-items: flex-start
-                            padding-right: 128px
+                            min-width: 205px
                             height: $icon-size
                             max-width: 200px
                             .upload-file__name
@@ -163,10 +158,22 @@ $icon-size: 45px
             margin-top: 12px
             .upload-files__list
                 max-height: 256px
+                .upload-file__item
+                    max-width: calc(#{$max-width} - 64px) !important
                 .upload-file__info
-                    padding-right: 0 !important
+                    min-width: 130px !important
                     .upload-file__name
-                        max-width: 120px !important
+                        max-width: 130px !important
+
+@media screen and (max-width: 361px)
+    .upload-container
+        .upload-item.list
+            .upload-files__list
+                .upload-file__item
+                .upload-file__info
+                    min-width: 110px !important
+                    .upload-file__name
+                        max-width: 110px !important
 
 @keyframes loading
     0%

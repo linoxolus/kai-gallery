@@ -1,6 +1,3 @@
-* {
-  transition: 2s; }
-
 .container {
   height: 100vh; }
 
@@ -17,7 +14,6 @@
   .upload-container .upload-item {
     text-align: center;
     vertical-align: middle;
-    padding-right: 48px;
     max-width: calc(100vw - 32px); }
     .upload-container .upload-item.upload-form {
       padding: 24px; }
@@ -33,17 +29,16 @@
       .upload-container .upload-item.list .upload-files__list {
         display: flex;
         gap: 12px;
-        flex-direction: column-reverse;
-        overflow: scroll;
-        justify-content: flex-end; }
+        flex-direction: column;
+        overflow: scroll; }
         .upload-container .upload-item.list .upload-files__list .upload-file__item {
           display: flex;
           gap: 16px;
           align-items: center; }
           .upload-container .upload-item.list .upload-files__list .upload-file__item:first-child {
-            margin-bottom: 24px; }
-          .upload-container .upload-item.list .upload-files__list .upload-file__item:last-child {
             margin-top: 24px; }
+          .upload-container .upload-item.list .upload-files__list .upload-file__item:last-child {
+            margin-bottom: 24px; }
           .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__icon {
             border: 2px solid #fff;
             border-radius: 100%;
@@ -72,7 +67,7 @@
               flex-direction: column;
               justify-content: space-evenly;
               align-items: flex-start;
-              padding-right: 128px;
+              min-width: 205px;
               height: 45px;
               max-width: 200px; }
               .upload-container .upload-item.list .upload-files__list .upload-file__item .upload-file__content .upload-file__info .upload-file__name {
@@ -140,10 +135,18 @@
       margin-top: 12px; }
       .upload-container .upload-item.list .upload-files__list {
         max-height: 256px; }
+        .upload-container .upload-item.list .upload-files__list .upload-file__item {
+          max-width: calc(calc(100vw - 32px) - 64px) !important; }
         .upload-container .upload-item.list .upload-files__list .upload-file__info {
-          padding-right: 0 !important; }
+          min-width: 130px !important; }
           .upload-container .upload-item.list .upload-files__list .upload-file__info .upload-file__name {
-            max-width: 120px !important; } }
+            max-width: 130px !important; } }
+
+@media screen and (max-width: 361px) {
+  .upload-container .upload-item.list .upload-files__list .upload-file__info {
+    min-width: 110px !important; }
+    .upload-container .upload-item.list .upload-files__list .upload-file__info .upload-file__name {
+      max-width: 110px !important; } }
 
 @keyframes loading {
   0% {

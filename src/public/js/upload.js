@@ -32,8 +32,7 @@ function getUploadProcess(currentIndex) {
 
 function addListItem(file) {
     let fileNameSplit = file.name.split('.');
-
-    filesList.innerHTML += `
+    var htmlString = `
     <li class='upload-file__item uploading'>
     <div class='upload-file__icon'>
         <div class='upload-file__type'>
@@ -80,7 +79,11 @@ function addListItem(file) {
         </div>
     </div>
 </li>
-    `;
+    `
+    
+    var total = htmlString + filesList.innerHTML;
+
+    filesList.innerHTML = total;
 }
 
 // Update upload progess
