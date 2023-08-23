@@ -6,7 +6,8 @@ const gallerySchema = new Schema({
     id: {type: Number, unique: true},
     image: {type: String, required: true},
     size: {type: Number},
-    mime: {type: String},
+    type: {type: String},
+    mimetype: {type: String},
     name: {type: String},
     createdAt: {type: Date, default: Date.now, required: true},
     updatedAt: {type: Date, default: Date.now, required: true}

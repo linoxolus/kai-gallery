@@ -3,12 +3,12 @@ const gallery = require('../models/gallery.model');
 class adminController {
     // [GET] /upload
     upload(req, res, next) {
-        res.render('upload');
+        res.render('admin/upload');
     }
 
     // [GET] /list
     list(req, res, next) {
-        res.render('list');
+        res.render('admin/list');
     }
 
     // [POST] /store
@@ -18,7 +18,8 @@ class adminController {
                 name: req.files[0].originalname,
                 image: req.files[0].path,
                 size: req.files[0].size,
-                mime: req.files[0].mimetype,
+                mimetype: req.files[0].mimetype,
+                type: req.files[0].mimetype.split('/')[0],
             })
             .then(() => {
                 res.status(201).json({
