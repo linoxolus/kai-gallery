@@ -1,0 +1,14 @@
+<ul class='image-list'>
+    {{#each images}}
+        <li class='image-item'>
+            <img
+                src='{{this.image}}'
+                onerror="this.onerror=null; this.src='https://cdn.icon-icons.com/icons2/2783/PNG/512/photo_error_icon_177258.png'"
+                alt='Image'
+                loading="lazy"
+            />
+        </li>
+    {{/each}}
+</ul>
+
+<link rel='stylesheet' href='/css/media.css' />

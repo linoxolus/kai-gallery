@@ -1,4 +1,5 @@
 const gallery = require('../models/gallery.model');
+const { getValidPath } = require('../../utils/path.util');
 
 class adminController {
     // [GET] /upload
@@ -16,7 +17,7 @@ class adminController {
         gallery
             .create({
                 name: req.files[0].originalname,
-                image: req.files[0].path,
+                image: getValidPath(req.files[0].path),
                 size: req.files[0].size,
                 mimetype: req.files[0].mimetype,
                 type: req.files[0].mimetype.split('/')[0],

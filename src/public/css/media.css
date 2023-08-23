@@ -1,0 +1,12 @@
+#content .image-list {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  padding: 16px;
+  gap: 16px; }
+  #content .image-list .image-item {
+    list-style: none;
+    border-radius: 8px;
+    overflow: hidden; }
+    #content .image-list .image-item img {
+      border-radius: 8px;
+      width: 100%; }
