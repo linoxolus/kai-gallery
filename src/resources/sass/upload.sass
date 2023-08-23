@@ -165,11 +165,20 @@ $icon-size: 45px
                     .upload-file__name
                         max-width: 130px !important
 
-@media screen and (max-width: 361px)
-    .upload-file__info
-        min-width: 110px !important
-        .upload-file__name
-            max-width: 110px !important
+@media screen and (max-width: 381px)
+    .upload-container
+        .upload-item.list
+            .upload-files__list
+                .upload-file__item
+                .upload-file__info
+                    min-width: 100px !important
+                    .upload-file__name
+                        max-width: 100px !important
+                        font-size: 16px
+                    .upload-file__progress
+                        font-size: 8px
+
+
 
 @keyframes loading
     0%

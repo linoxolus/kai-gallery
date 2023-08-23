@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const mongooseDelete = require('mongoose-delete');
 const Counter = require('./Counter.model');
 
-const fileSchema = new Schema({
+const gallerySchema = new Schema({
     id: {type: Number, unique: true},
     image: {type: String, required: true},
     size: {type: Number},
@@ -12,7 +12,7 @@ const fileSchema = new Schema({
     updatedAt: {type: Date, default: Date.now, required: true}
 });
 
-fileSchema.pre('save', async function (next) {
+gallerySchema.pre('save', async function (next) {
     try {
       const counter = await Counter.findByIdAndUpdate(
         '_file',
@@ -26,9 +26,9 @@ fileSchema.pre('save', async function (next) {
     }
   });
 
-fileSchema.plugin(mongooseDelete, {
+gallerySchema.plugin(mongooseDelete, {
   overrideMethods: 'all',
   deletedAt: true,
 });
 
-module.exports = model('files', fileSchema);
+module.exports = model('files', gallerySchema);
