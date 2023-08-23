@@ -1,10 +1,12 @@
 const { Schema, model } = require('mongoose');
 
-const imageSchema = new Schema({
+const fileSchema = new Schema({
     id: {type: Number, unique: true},
-    image: {type: String},
+    image: {type: String, required: true},
+    size: {type: Number},
+    mime: {type: String},
     createdAt: {type: Date, default: Date.now, required: true},
     updatedAt: {type: Date, default: Date.now, required: true}
 });
 
-module.exports = model('images', imageSchema);
+module.exports = model('files', fileSchema);

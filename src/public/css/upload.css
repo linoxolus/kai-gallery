@@ -143,9 +143,9 @@
             max-width: 130px !important; } }
 
 @media screen and (max-width: 361px) {
-  .upload-container .upload-item.list .upload-files__list .upload-file__info {
+  .upload-file__info {
     min-width: 110px !important; }
-    .upload-container .upload-item.list .upload-files__list .upload-file__info .upload-file__name {
+    .upload-file__info .upload-file__name {
       max-width: 110px !important; } }
 
 @keyframes loading {

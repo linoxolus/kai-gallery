@@ -79,8 +79,8 @@ function addListItem(file) {
         </div>
     </div>
 </li>
-    `
-    
+    `;
+
     var total = htmlString + filesList.innerHTML;
 
     filesList.innerHTML = total;

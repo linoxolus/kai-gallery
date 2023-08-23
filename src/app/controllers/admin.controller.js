@@ -1,3 +1,5 @@
+const files = require('../models/gallery.model');
+
 class adminController {
     // [GET] /upload
     upload(req, res, next) {
@@ -11,7 +13,8 @@ class adminController {
 
     // [POST] /store
     async store(req, res, next) {
-        console.log(req.files);
+
+
         res.status(201).json({
             message: "success"
         })
