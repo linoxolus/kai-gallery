@@ -1,5 +1,5 @@
 #content .image-list {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   display: grid;
   padding: 16px;
   gap: 16px; }
@@ -10,3 +10,11 @@
     #content .image-list .image-item img {
       border-radius: 8px;
       width: 100%; }
+
+@media screen and (max-width: 1023px) {
+  #content .image-list {
+    grid-template-columns: repeat(6, 1fr); } }
+
+@media screen and (max-width: 767px) {
+  #content .image-list {
+    grid-template-columns: repeat(4, 1fr); } }
