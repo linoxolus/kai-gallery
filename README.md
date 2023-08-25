@@ -6,7 +6,7 @@ A Image and video manager make by Nodejs
 
 
 
-## The project is not yet complete and needs the following items:
+## The project is not yet complete and needs:
 - HomePage
 - Admin page
 - LightBox images ( Image viewer sub page )
