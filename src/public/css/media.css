@@ -22,7 +22,7 @@
   align-items: center;
   background: rgba(0, 0, 0, 0.75); }
   .media-modal .media-icon {
-    font-size: 24px;
+    font-size: 32px;
     cursor: pointer;
     user-select: none; }
     .media-modal .media-icon.times {
