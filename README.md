@@ -15,3 +15,7 @@ A Image and video manager make by Nodejs
 - Users managerment
 - Authencation
 - ...
+<<<<<<< HEAD
+=======
+
+>>>>>>> b200366 (Add: lightbox modal UI)
