@@ -8,6 +8,7 @@ function getValidPath(path) {
 
 function getMinPath(path) {
     var path = path.split('/');
+    path.splice(path.length - 2, 1);
     path.splice(path.length - 1, 0, 'min');
     return path.join('/');
 }

@@ -20,7 +20,7 @@ class adminController {
         var minPath = getMinPath(req.files[0].path);
         const filePath = path.join(
             __dirname,
-            '../../public/media/images/',
+            '../../public/media/images/origin',
             req.files[0].filename
         );
         const minFilePath = path.join(
@@ -40,7 +40,7 @@ class adminController {
             .then(() => {
                 if (req.files[0].mimetype.split('/')[0] === 'image') {
                     sharp(filePath)
-                        .jpeg({ quality: 40 })
+                        .jpeg({ quality: 25 })
                         .toFile(minFilePath)
                         .then(() => {
                             res.status(201).json({

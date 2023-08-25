@@ -4,7 +4,7 @@ const path = require('path');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         if (file.mimetype.startsWith('image')) {
-            cb(null, 'src/public/media/images');
+            cb(null, 'src/public/media/images/origin');
         } else if (file.mimetype.startsWith('video')) {
             cb(null, 'src/public/media/videos');
         } else if (file.mimetype.startsWith('text')) {
