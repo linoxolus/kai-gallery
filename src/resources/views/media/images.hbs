@@ -7,6 +7,7 @@
                 alt='{{this.name}}'
                 loading='lazy'
                 data-id='{{this.id}}'
+                data-index='{{@index}}'
                 class='media-item'
                 data-image='{{this.image}}'
             />
@@ -15,11 +16,12 @@
 </ul>
 
 <div class='media-modal closed'>
+    <div class="overlay"></div>
     <div class='media-icon times'>
         <i class='fa-regular fa-circle-xmark'></i>
     </div>
 
-    <div class='media-icon arrow'>
+    <div class='media-icon arrow prev'>
         <i class='fa-solid fa-arrow-left'></i>
     </div>
 
@@ -32,7 +34,7 @@
         />
     </div>
 
-    <div class='media-icon arrow'>
+    <div class='media-icon arrow next'>
         <i class='fa-solid fa-arrow-right'></i>
     </div>
 </div>
