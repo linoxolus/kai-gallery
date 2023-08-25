@@ -5,6 +5,7 @@ const Counter = require('./Counter.model');
 const gallerySchema = new Schema({
     id: {type: Number, unique: true},
     image: {type: String, required: true},
+    minimage: {type: String},
     size: {type: Number},
     type: {type: String},
     mimetype: {type: String},

@@ -1,6 +1,6 @@
 # uploads datas
 src/public/uploads
-src/public/media
+# src/public/media
 
 # Logs
 logs
