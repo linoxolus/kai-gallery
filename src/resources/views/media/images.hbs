@@ -4,11 +4,32 @@
             <img
                 src='{{this.minimage}}'
                 onerror="this.onerror=null; this.src='https://cdn.icon-icons.com/icons2/2783/PNG/512/photo_error_icon_177258.png'"
-                alt='Image'
+                alt='{{this.name}}'
                 loading="lazy"
+                data-id='{{this.id}}'
+                class="media-item"
             />
         </li>
     {{/each}}
 </ul>
 
+<div class="media-modal closed">
+    <div class="media-icon times">
+        <i class="fa-regular fa-circle-xmark"></i>
+    </div>
+    
+    <div class="media-icon arrow">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+
+    <div class="media-content">
+        <img src="https://cdn.dribbble.com/users/136981/screenshots/4363062/media/c80d0a952332b0bb311d5c3ad7e202e1.png?resize=400x0" alt="Image">
+    </div>
+
+    <div class="media-icon arrow">
+        <i class="fa-solid fa-arrow-right"></i>
+    </div>
+</div>
+
 <link rel='stylesheet' href='/css/media.css' />
+<script src="/js/media.js"></script>
