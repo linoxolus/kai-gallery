@@ -1,6 +1,6 @@
 {
   "name": "kai-gallery",
-  "version": "0.0.1-alpha",
+  "version": "1.0.0-beta",
   "description": "A image and video manager make by Nodejs",
   "main": "src/index.html",
   "scripts": {
