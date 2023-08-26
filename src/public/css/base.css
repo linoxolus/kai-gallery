@@ -34,3 +34,7 @@
   .container #content {
     min-height: 100vh;
     margin-top: 50px; }
+
+@media screen and (max-width: 500px) {
+  .container nav .nav-item .nav-link {
+    font-size: 12px; } }
