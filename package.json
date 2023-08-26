@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "sass": "node-sass --watch src/resources/sass/ -o src/public/css/"
+    "sass": "node-sass --watch src/resources/sass/ -o src/public/css/",
+    "build": "node src/build/mkdir.js"
   },
   "repository": {
     "type": "git",

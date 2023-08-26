@@ -9,7 +9,7 @@ const route = require('./routes');
 
 // variable decalaration
 const app = express();
-const port = 443;
+const port = process.env.PORT || 2008;
 
 // expess configure
 app.engine('hbs', engine({ extname: '.hbs' }));

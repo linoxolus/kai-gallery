@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const databaseURL = 'mongodb://127.0.0.1/gallery';
+const databaseURL = process.env.DB || 'mongodb://127.0.0.1/gallery';
 
 function connect() {
     mongoose.connect(databaseURL)
