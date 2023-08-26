@@ -34,8 +34,8 @@
     user-select: none; }
     .media-modal .media-icon.times {
       position: absolute;
-      top: 50px;
-      right: 50px; }
+      top: 25px;
+      right: 25px; }
     .media-modal .media-icon.arrow {
       display: flex;
       justify-content: center;
