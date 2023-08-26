@@ -1,14 +1,14 @@
-<ul class='image-list'>
+<ul class='image-list media-list'>
     {{#each images}}
-        <li class='image-item'>
+        <li class='image-item media-item-wrap'>
             <img
-                src='{{this.minimage}}'
+                src='{{this.minPath}}'
                 onerror="this.onerror=null; this.src='https://cdn.icon-icons.com/icons2/2783/PNG/512/photo_error_icon_177258.png'"
                 alt='{{this.name}}'
                 loading='lazy'
                 data-id='{{this.id}}'
                 class='media-item'
-                data-image='{{this.image}}'
+                data-path='{{this.path}}'
                 data-index="{{@index}}"
             />
         </li>
@@ -27,7 +27,7 @@
 
     <div class='media-content'>
         <img
-            class='media-image'
+            class='media-main'
             src='https://cdn.dribbble.com/users/136981/screenshots/4363062/media/c80d0a952332b0bb311d5c3ad7e202e1.png?resize=400x0'
             alt='Image'
             loading="eager"

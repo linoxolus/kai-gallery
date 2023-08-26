@@ -31,8 +31,8 @@ class adminController {
         gallery
             .create({
                 name: req.files[0].originalname,
-                image: getValidPath(req.files[0].path),
-                minimage: getValidPath(minPath),
+                path: getValidPath(req.files[0].path),
+                minPath: getValidPath(minPath),
                 size: req.files[0].size,
                 mimetype: req.files[0].mimetype,
                 type: req.files[0].mimetype.split('/')[0],

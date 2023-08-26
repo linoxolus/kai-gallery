@@ -2,41 +2,41 @@ const mediaModal = document.querySelector('.media-modal');
 const mediaItems = document.querySelectorAll('.media-item');
 const closeBtn = document.querySelector('.media-icon.times');
 const overlay = document.querySelector('.overlay');
-const mediaImage = document.querySelector('.media-image');
+const mediaMain = document.querySelector('.media-main');
 const prevBtn = document.querySelector('.media-icon.arrow.prev');
 const nextBtn = document.querySelector('.media-icon.arrow.next');
 var mediaLength = document.querySelectorAll('.media-item').length;
 var currentIndex = 0;
-var currentImage;
+var currentMedia;
 
-function updateImage(index) {
-    currentImage = mediaItems[index];
-    originImage = currentImage.dataset.image;
-    minImage = currentImage.src;
-    mediaImage.src = minImage;
-    mediaImage.src = originImage;
+function updateMedia(index) {
+    currentMedia = mediaItems[index];
+    originMedia = currentMedia.dataset.path;
+    minMedia = currentMedia.src;
+    mediaMain.src = minMedia;
+    mediaMain.src = originMedia;
     mediaModal.classList.remove('closed');    
 }
 
 function openModal(e) {
     currentIndex = Number(e.target.dataset.index);
-    updateImage(currentIndex);
+    updateMedia(currentIndex);
 }
 
 function closeModal(e) {
     mediaModal.classList.add('closed');
 }
 
-function prevImage(e) {
+function prevMedia(e) {
     // If currentIndex < 0, set currentIndex = mediaLength - 1
     currentIndex = (currentIndex - 1 + mediaLength) % mediaLength;
-    updateImage(currentIndex);
+    updateMedia(currentIndex);
 }
 
-function nextImage(e) {
+function nextMedia(e) {
     // If currentIndex >= mediaLength, set currentIndex = 0
     currentIndex = (currentIndex + 1) % mediaLength;
-    updateImage(currentIndex);
+    updateMedia(currentIndex);
 }
 
 mediaItems.forEach(mediaItem => {
@@ -53,15 +53,15 @@ document.documentElement.onkeyup = (e) => {
             closeModal();
             break;
         case 37:
-            prevImage();
+            prevMedia();
             break;
         case 39:
-            nextImage();
+            nextMedia();
             break;
     }
 };
 
-prevBtn.onclick = prevImage;
-nextBtn.onclick = nextImage;
+prevBtn.onclick = prevMedia;
+nextBtn.onclick = nextMedia;
 
 overlay.onclick = closeModal;

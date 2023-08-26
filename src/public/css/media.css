@@ -1,13 +1,13 @@
-#content .image-list {
+#content .media-list {
   grid-template-columns: repeat(8, 1fr);
   display: grid;
   padding: 16px;
   gap: 16px; }
-  #content .image-list .image-item {
+  #content .media-list .media-item-wrap {
     list-style: none;
     border-radius: 8px;
     overflow: hidden; }
-    #content .image-list .image-item img {
+    #content .media-list .media-item-wrap img {
       border-radius: 8px;
       width: 100%; }
 
@@ -61,13 +61,13 @@
   display: none; }
 
 @media screen and (max-width: 1023px) {
-  #content .image-list {
+  #content .media-list {
     grid-template-columns: repeat(6, 1fr); } }
 
 @media screen and (max-width: 767px) {
-  #content .image-list {
+  #content .media-list {
     grid-template-columns: repeat(4, 1fr); } }
 
 @media screen and (max-width: 500px) {
-  #content .image-list {
+  #content .media-list {
     grid-template-columns: repeat(3, 1fr); } }

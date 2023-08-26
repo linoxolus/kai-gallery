@@ -18,7 +18,14 @@ class mediaController {
     }
 
     videos(req, res, next) {
-        res.render('media/videos');
+        gallery
+        .find({ type: 'video' })
+        .then((videos) => {
+            res.render('media/videos', {
+                videos: mongoosesToObject(videos),
+            });
+        })
+        .catch(next);
     }
 
     docs(req, res, next) {
