@@ -11,10 +11,8 @@ function openModal(e) {
     originImage = e.target.dataset.image;
     minImage = e.target.src;
     currentIndex = Number(e.target.dataset.id);
-    mediaImage.src = minImage;
-    mediaImage.onload = (e) => {
-        mediaImage.src = originImage;
-    };
+    mediaImage.src = minImage;    
+    mediaImage.src = originImage;
     mediaModal.classList.remove('closed');
 }
 
@@ -45,3 +43,6 @@ document.documentElement.onkeyup = (e) => {
         closeModal();
     }
 }
+
+prevBtn.onclick = prevImage;
+nextBtn.onclick = nextImage;
