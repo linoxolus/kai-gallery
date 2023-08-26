@@ -10,6 +10,10 @@
     #content .media-list .media-item-wrap img {
       border-radius: 8px;
       width: 100%; }
+    #content .media-list .media-item-wrap video {
+      border-radius: 8px;
+      width: 100%;
+      overflow: hidden; }
 
 .media-modal {
   position: fixed;
