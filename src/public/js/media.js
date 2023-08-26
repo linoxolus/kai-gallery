@@ -28,11 +28,13 @@ function closeModal(e) {
 }
 
 function prevImage(e) {
+    // If currentIndex < 0, set currentIndex = mediaLength - 1
     currentIndex = (currentIndex - 1 + mediaLength) % mediaLength;
     updateImage(currentIndex);
 }
 
 function nextImage(e) {
+    // If currentIndex >= mediaLength, set currentIndex = 0
     currentIndex = (currentIndex + 1) % mediaLength;
     updateImage(currentIndex);
 }
@@ -44,8 +46,6 @@ mediaItems.forEach(mediaItem => {
 closeBtn.addEventListener('click', (e) => {
     closeModal();
 });
-
-overlay.onclick = closeModal;
 
 document.documentElement.onkeyup = (e) => {
     switch (e.keyCode) {
@@ -63,3 +63,5 @@ document.documentElement.onkeyup = (e) => {
 
 prevBtn.onclick = prevImage;
 nextBtn.onclick = nextImage;
+
+overlay.onclick = closeModal;

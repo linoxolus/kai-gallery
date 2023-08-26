@@ -7,13 +7,13 @@ A Image and video manager make by Nodejs
 
 
 ## The project is not yet complete and needs:
-- HomePage
-- Admin page
-- LightBox images ( Image viewer sub page )
-- Docs, movie, sound page
-- Improve UI/UX
-- Users managerment
-- Authencation
+- HomePage - 0%
+- Admin page - 0%
+- LightBox images ( Image swiper) - 75%
+- Docs, movie, sound page, ... - 10%
+- Improve UI/UX - 10%
+- Users managerment - 0%
+- Authencation - 0%
 - ...
 <<<<<<< HEAD
 =======

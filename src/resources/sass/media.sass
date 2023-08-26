@@ -1,5 +1,6 @@
 $media-icon-pad: 25px
-    
+$icon-size: 40px    
+
 #content
     .image-list
         grid-template-columns: repeat(8, 1fr)
@@ -46,8 +47,8 @@ $media-icon-pad: 25px
             align-items: center
             background: #fafafa
             border-radius: 50%
-            width: 40px
-            height: 40px
+            width: $icon-size
+            height: $icon-size
             i
                 color: #111
     .media-content
@@ -59,7 +60,7 @@ $media-icon-pad: 25px
             box-shadow: 0 0 12px rgba(255, 255, 255, 0.01)
             border-radius: 12px
             max-height: 70vh
-            max-width: 80vw
+            max-width: calc(80vw - #{$icon-size} - 12px)
 
 .media-modal.closed
     display: none
