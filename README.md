@@ -10,7 +10,7 @@ A Image and video manager make by Nodejs
 - HomePage - 0%
 - Admin page - 0%
 - LightBox images ( Image swiper) - 75%
-- Docs, movie, sound page, ... - 10%
+- Docs, movie, sound page, ... - 15%
 - Improve UI/UX - 10%
 - Users managerment - 0%
 - Authencation - 0%
